@@ -25,6 +25,7 @@
         [self presentViewController:naVC animated:YES completion:^{
         }];
     }
+    NSLog(@"xiugai");
 }
 
 
