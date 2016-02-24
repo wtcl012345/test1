@@ -17,7 +17,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear: animated];
     NSUserDefaults *uf = [NSUserDefaults standardUserDefaults];
-//    [uf setBool:NO forKey:@"haveDate"];
     BOOL YesOrNo = [uf boolForKey:@"haveDate"];
     if (YesOrNo == NO) {
         PregnancyBudgetViewController *pbVC = [[PregnancyBudgetViewController alloc] init];
