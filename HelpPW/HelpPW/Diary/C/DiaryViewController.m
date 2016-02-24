@@ -13,6 +13,7 @@
 #import "DiaryCollectionViewCell.h"
 #import "TextCollectionViewCell.h"
 #import "DiaryDetailViewController.h"
+#import "CalendarViewController.h"
 
 @interface DiaryViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) UICollectionView *collectionV;
@@ -80,7 +81,8 @@
     }];
 }
 - (void)doPushDate {
-    NSLog(@"日历");
+    CalendarViewController *calendarVC = [[CalendarViewController alloc] init];
+    [self presentViewController:calendarVC animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionViewDataSource

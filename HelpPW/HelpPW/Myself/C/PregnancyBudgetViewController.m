@@ -118,7 +118,7 @@
     NSDate *date = [NSDate dateWithTimeInterval:280*24*60*60 sinceDate:self.picker.date];
     // 将输入的值存入本地,判断下次是否进入输入预产期界面
     NSUserDefaults *uf = [NSUserDefaults standardUserDefaults];
-    [uf setBool:YES forKey:@"haveDate"];
+//    [uf setBool:YES forKey:@"haveDate"];
     [uf setObject:self.picker.date forKey:@"beginDate"];
     [uf setObject:date forKey:@"overDate"];
 
@@ -130,6 +130,8 @@
 }
 //  完成计算按钮
 - (void)completeAff:(UIButton *)button {
+    NSUserDefaults *uf = [NSUserDefaults standardUserDefaults];
+    [uf setBool:YES forKey:@"haveDate"];
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
     }];
     
