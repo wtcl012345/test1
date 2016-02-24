@@ -7,23 +7,38 @@
 //
 
 #import "RemindViewController.h"
-
+#import "PregnancyBudgetViewController.h"
 @interface RemindViewController ()
 
 @end
 
 @implementation RemindViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
+    NSUserDefaults *uf = [NSUserDefaults standardUserDefaults];
+    [uf setBool:NO forKey:@"haveDate"];
+    BOOL YesOrNo = [uf boolForKey:@"haveDate"];
+    if (YesOrNo == NO) {
+        PregnancyBudgetViewController *pbVC = [[PregnancyBudgetViewController alloc] init];
+        UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:pbVC];
+        [self presentViewController:naVC animated:YES completion:^{
+        }];
+    }
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 
@@ -33,5 +48,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end
