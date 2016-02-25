@@ -12,6 +12,7 @@
 @interface DiaryChangeView ()
 @property (nonatomic, strong) UITextField *titleTF; // 标题
 @property (nonatomic, strong) UITextView *textV; // 正文
+@property (nonatomic, strong) NSMutableArray *imageArr; // 图片
 @end
 
 @implementation DiaryChangeView
@@ -31,11 +32,23 @@
         [self addSubview:self.titleTF];
         
         //  正文TV
-        self.textV = [[UITextView alloc] initWithFrame:CGRectMake(titleL.frame.origin.x, titleL.frame.origin.y+titleL.frame.size.height+20, kWidth-titleL.frame.origin.x-20, kHeigth/4)];
+        self.textV = [[UITextView alloc] initWithFrame:CGRectMake(titleL.frame.origin.x, titleL.frame.origin.y+titleL.frame.size.height+20, kWidth-titleL.frame.origin.x-20, kHeigth/3)];
         self.textV.font = [UIFont systemFontOfSize:17];
         self.textV.layer.borderWidth = 0.3;
         self.textV.layer.cornerRadius = 10;
         [self addSubview:self.textV];
+        
+        //  图片Button
+        self.imageArr = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < 3; i++) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(self.textV.frame.origin.x+(kWidth/4+10)*i+10, self.textV.frame.origin.y+self.textV.frame.size.height+20, kWidth/4, kWidth/4);
+            [self addSubview:button];
+            [self.imageArr addObject:button];
+        }
+        
+        
+        
         
     }
     return self;
@@ -44,7 +57,25 @@
     _diaryM = diaryM;
     self.titleTF.text = self.diaryM.title;
     self.textV.text = self.diaryM.content;
+    if (diaryM.image1) {
+        UIButton *button = self.imageArr[0];
+        [button setImage:diaryM.image1 forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(changePhoto:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    if (diaryM.image2) {
+        UIButton *button = self.imageArr[1];
+        [button setImage:diaryM.image2 forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(changePhoto:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    if (diaryM.image3) {
+        UIButton *button = self.imageArr[2];
+        [button setImage:diaryM.image3 forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(changePhoto:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

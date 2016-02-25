@@ -10,6 +10,7 @@
 #import "DiaryModel.h"
 #import "DiaryChangeView.h"
 #import "PhotoViewController.h"
+#import "DiaryHandle.h"
 
 @interface DiaryDetailViewController ()
 @property (nonatomic, strong) UIScrollView *scrollV;
@@ -100,6 +101,9 @@
         self.isChange = YES;
     } else {
 #warning 修改数据库
+        
+        
+        
         [self.changeV removeFromSuperview];
         [self.navigationItem.rightBarButtonItem setTitle:@"编辑"];
         self.isChange = NO;

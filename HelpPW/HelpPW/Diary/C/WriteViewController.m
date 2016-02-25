@@ -46,7 +46,7 @@
     [self.view addSubview:self.titleTF];
     
 //  正文TV
-   self.textV = [[UITextView alloc] initWithFrame:CGRectMake(titleL.frame.origin.x, titleL.frame.origin.y+titleL.frame.size.height+20, kWidth-titleL.frame.origin.x-20, kHeigth/4)];
+   self.textV = [[UITextView alloc] initWithFrame:CGRectMake(titleL.frame.origin.x, titleL.frame.origin.y+titleL.frame.size.height+20, kWidth-titleL.frame.origin.x-20, kHeigth/3)];
     self.textV.font = [UIFont systemFontOfSize:17];
     self.textV.textAlignment = NSTextAlignmentLeft;
 //    textV.returnKeyType = UIReturnKeyDone;

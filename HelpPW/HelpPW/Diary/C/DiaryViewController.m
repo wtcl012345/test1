@@ -80,6 +80,7 @@
     [self presentViewController:naviC animated:YES completion:^{
     }];
 }
+//  日历按钮事件
 - (void)doPushDate {
     CalendarViewController *calendarVC = [[CalendarViewController alloc] init];
     [self presentViewController:calendarVC animated:YES completion:nil];
