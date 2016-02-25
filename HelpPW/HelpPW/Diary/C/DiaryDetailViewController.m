@@ -10,7 +10,6 @@
 #import "DiaryModel.h"
 #import "DiaryChangeView.h"
 #import "PhotoViewController.h"
-#import "DiaryHandle.h"
 
 @interface DiaryDetailViewController ()
 @property (nonatomic, strong) UIScrollView *scrollV;
